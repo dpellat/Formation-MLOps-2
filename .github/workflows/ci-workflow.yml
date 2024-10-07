@@ -22,8 +22,9 @@ jobs:
       - name: Run Linter
         run:  flake8 --ignore E402 .
       - name: Run Vulture
-        run:  vulture formation_indus_ds_avancee
+        run:  vulture --min-confidence=100 formation_indus_ds_avancee 
       - name: Run tests
-        run:  pytest "Trainee should add command to run test"
+        run:  python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings
+        
 
 
